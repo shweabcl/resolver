@@ -1,4 +1,6 @@
-name: Python Package using Conda
+- name: Update Conda Environment
+  run: conda env update --file environment.yml --name base
+
 
 on: [push]
 
@@ -10,8 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+    - name: Update Conda Environment
+      uses: conda env update --file conda.yml --name base
       with:
         python-version: '3.10'
     - name: Add conda to system path
